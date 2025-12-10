@@ -161,19 +161,15 @@
         <div class="admin-content">
           <div class="page-title">
             <h1>Dashboard</h1>
-            <div class="page-actions">
-              <button class="date-btn" id="exportBtn"><i class="fas fa-download"></i> Xuất báo cáo</button>
-            </div>
           </div>
 
-          <!-- Modal Xuất Báo Cáo -->
-          <div id="exportModal" class="export-modal">
-            <div class="export-modal-content">
-              <div class="export-modal-header">
+          <!-- Section Xuất Báo Cáo -->
+          <div class="export-section">
+            <div class="export-section-content">
+              <div class="export-section-header">
                 <h2><i class="fas fa-file-export"></i> Xuất Báo Cáo</h2>
-                <span class="close-modal">&times;</span>
               </div>
-              <div class="export-modal-body">
+              <div class="export-section-body">
                 <div class="export-form-row">
                   <div class="export-form-group">
                     <label>Loại báo cáo:</label>
@@ -194,17 +190,17 @@
                       <option value="csv">CSV</option>
                     </select>
                   </div>
-                </div>
-                <div class="export-form-group">
-                  <label>Khoảng thời gian:</label>
-                  <select id="reportPeriod">
-                    <option value="today">Hôm nay</option>
-                    <option value="week">Tuần này</option>
-                    <option value="month">Tháng này</option>
-                    <option value="quarter">Quý này</option>
-                    <option value="year" selected>Năm nay</option>
-                    <option value="custom">Tùy chỉnh</option>
-                  </select>
+                  <div class="export-form-group">
+                    <label>Khoảng thời gian:</label>
+                    <select id="reportPeriod">
+                      <option value="today">Hôm nay</option>
+                      <option value="week">Tuần này</option>
+                      <option value="month">Tháng này</option>
+                      <option value="quarter">Quý này</option>
+                      <option value="year" selected>Năm nay</option>
+                      <option value="custom">Tùy chỉnh</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="export-form-group custom-date-range" id="customDateRange" style="display: none;">
                   <label>Từ ngày:</label>
@@ -212,34 +208,242 @@
                   <label>Đến ngày:</label>
                   <input type="date" id="reportEndDate" />
                 </div>
-              </div>
-              <div class="export-modal-footer">
-                <button class="btn-preview" id="previewBtn"><i class="fas fa-eye"></i> Xem trước</button>
-                <button class="btn-export" id="confirmExportBtn"><i class="fas fa-download"></i> Xuất báo cáo</button>
-                <button class="btn-cancel" id="cancelExportBtn">Hủy</button>
+                <div class="export-actions">
+                  <button class="btn-export" id="confirmExportBtn"><i class="fas fa-download"></i> Xuất báo cáo</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Modal Xem Trước Báo Cáo -->
-          <div id="previewModal" class="export-modal">
-            <div class="preview-modal-content">
-              <div class="preview-modal-header">
-                <h2 id="previewTitle"><i class="fas fa-file-alt"></i> Xem trước báo cáo</h2>
-                <span class="close-preview">&times;</span>
+          <!-- Section Xem Trước Tất Cả Báo Cáo -->
+          <div class="all-reports-section">
+            <!-- Báo cáo Doanh thu -->
+            <div class="report-card" id="revenueReport">
+              <div class="report-card-header">
+                <h3><i class="fas fa-money-bill-wave"></i> Báo cáo Doanh thu</h3>
+                <span class="report-badge revenue">Doanh thu</span>
               </div>
-              <div class="preview-modal-body">
-                <div class="preview-toolbar">
-                  <span class="preview-format" id="previewFormat">Excel</span>
-                  <span class="preview-info" id="previewInfo">Báo cáo doanh thu - Năm 2024</span>
-                </div>
-                <div class="preview-table-container" id="previewTableContainer">
-                  <!-- Table will be generated here -->
-                </div>
+              <div class="report-card-body">
+                <table class="preview-table">
+                  <thead>
+                    <tr>
+                      <th>Tháng</th>
+                      <th>Doanh thu (Triệu VNĐ)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Tháng 1</td><td class="number">0</td></tr>
+                    <tr><td>Tháng 2</td><td class="number">0.5</td></tr>
+                    <tr><td>Tháng 3</td><td class="number">3</td></tr>
+                    <tr><td>Tháng 4</td><td class="number">5</td></tr>
+                    <tr><td>Tháng 5</td><td class="number">3</td></tr>
+                    <tr><td>Tháng 6</td><td class="number">5</td></tr>
+                    <tr><td>Tháng 7</td><td class="number">4</td></tr>
+                    <tr><td>Tháng 8</td><td class="number">6.5</td></tr>
+                    <tr><td>Tháng 9</td><td class="number">7</td></tr>
+                    <tr><td>Tháng 10</td><td class="number">10</td></tr>
+                    <tr><td>Tháng 11</td><td class="number">33</td></tr>
+                    <tr><td>Tháng 12</td><td class="number">25</td></tr>
+                    <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>102</strong></td></tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="preview-modal-footer">
-                <button class="btn-export" id="exportFromPreview"><i class="fas fa-download"></i> Xuất báo cáo</button>
-                <button class="btn-cancel" id="closePreview">Đóng</button>
+            </div>
+
+            <!-- Báo cáo Đơn hàng -->
+            <div class="report-card" id="ordersReport">
+              <div class="report-card-header">
+                <h3><i class="fas fa-shopping-cart"></i> Báo cáo Đơn hàng</h3>
+                <span class="report-badge orders">Đơn hàng</span>
+              </div>
+              <div class="report-card-body">
+                <table class="preview-table">
+                  <thead>
+                    <tr>
+                      <th>Tháng</th>
+                      <th>Số đơn hàng</th>
+                      <th>Đã giao</th>
+                      <th>Đang xử lý</th>
+                      <th>Đã hủy</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Tháng 1</td><td class="number">0</td><td class="number">0</td><td class="number">0</td><td class="number">0</td></tr>
+                    <tr><td>Tháng 2</td><td class="number">5</td><td class="number">4</td><td class="number">1</td><td class="number">0</td></tr>
+                    <tr><td>Tháng 3</td><td class="number">25</td><td class="number">22</td><td class="number">2</td><td class="number">1</td></tr>
+                    <tr><td>Tháng 4</td><td class="number">40</td><td class="number">35</td><td class="number">3</td><td class="number">2</td></tr>
+                    <tr><td>Tháng 5</td><td class="number">28</td><td class="number">25</td><td class="number">2</td><td class="number">1</td></tr>
+                    <tr><td>Tháng 6</td><td class="number">42</td><td class="number">38</td><td class="number">3</td><td class="number">1</td></tr>
+                    <tr><td>Tháng 7</td><td class="number">35</td><td class="number">32</td><td class="number">2</td><td class="number">1</td></tr>
+                    <tr><td>Tháng 8</td><td class="number">55</td><td class="number">50</td><td class="number">3</td><td class="number">2</td></tr>
+                    <tr><td>Tháng 9</td><td class="number">60</td><td class="number">55</td><td class="number">3</td><td class="number">2</td></tr>
+                    <tr><td>Tháng 10</td><td class="number">85</td><td class="number">78</td><td class="number">5</td><td class="number">2</td></tr>
+                    <tr><td>Tháng 11</td><td class="number">280</td><td class="number">260</td><td class="number">15</td><td class="number">5</td></tr>
+                    <tr><td>Tháng 12</td><td class="number">210</td><td class="number">195</td><td class="number">10</td><td class="number">5</td></tr>
+                    <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>865</strong></td><td class="number"><strong>794</strong></td><td class="number"><strong>49</strong></td><td class="number"><strong>22</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Báo cáo Sản phẩm -->
+            <div class="report-card" id="productsReport">
+              <div class="report-card-header">
+                <h3><i class="fas fa-box"></i> Báo cáo Sản phẩm</h3>
+                <span class="report-badge products">Sản phẩm</span>
+              </div>
+              <div class="report-card-body">
+                <table class="preview-table">
+                  <thead>
+                    <tr>
+                      <th>Sản phẩm</th>
+                      <th>Số lượng bán</th>
+                      <th>Doanh thu (Triệu VNĐ)</th>
+                      <th>Lợi nhuận (Triệu VNĐ)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Túi handmade</td><td class="number">45</td><td class="number">9.0</td><td class="number">4.2</td></tr>
+                    <tr><td>Thiệp handmade</td><td class="number">38</td><td class="number">5.7</td><td class="number">2.8</td></tr>
+                    <tr><td>Móc khóa</td><td class="number">52</td><td class="number">7.8</td><td class="number">5.1</td></tr>
+                    <tr><td>Vòng tay</td><td class="number">28</td><td class="number">4.2</td><td class="number">2.3</td></tr>
+                    <tr><td>Hộp quà</td><td class="number">41</td><td class="number">8.2</td><td class="number">4.8</td></tr>
+                    <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>204</strong></td><td class="number"><strong>34.9</strong></td><td class="number"><strong>19.2</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Báo cáo Nhân viên -->
+            <div class="report-card" id="employeesReport">
+              <div class="report-card-header">
+                <h3><i class="fas fa-users"></i> Báo cáo Nhân viên</h3>
+                <span class="report-badge employees">Nhân viên</span>
+              </div>
+              <div class="report-card-body">
+                <table class="preview-table">
+                  <thead>
+                    <tr>
+                      <th>Tháng</th>
+                      <th>NV mới</th>
+                      <th>NV nghỉ</th>
+                      <th>Tổng NV</th>
+                      <th>Sản phẩm nộp</th>
+                      <th>Tiền công (Triệu VNĐ)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Tháng 1</td><td class="number">0</td><td class="number">0</td><td class="number">5</td><td class="number">0</td><td class="number">0</td></tr>
+                    <tr><td>Tháng 2</td><td class="number">2</td><td class="number">0</td><td class="number">7</td><td class="number">10</td><td class="number">0.15</td></tr>
+                    <tr><td>Tháng 3</td><td class="number">5</td><td class="number">1</td><td class="number">11</td><td class="number">50</td><td class="number">0.75</td></tr>
+                    <tr><td>Tháng 4</td><td class="number">8</td><td class="number">2</td><td class="number">17</td><td class="number">85</td><td class="number">1.28</td></tr>
+                    <tr><td>Tháng 5</td><td class="number">6</td><td class="number">3</td><td class="number">20</td><td class="number">60</td><td class="number">0.9</td></tr>
+                    <tr><td>Tháng 6</td><td class="number">10</td><td class="number">2</td><td class="number">28</td><td class="number">100</td><td class="number">1.5</td></tr>
+                    <tr><td>Tháng 7</td><td class="number">7</td><td class="number">4</td><td class="number">31</td><td class="number">80</td><td class="number">1.2</td></tr>
+                    <tr><td>Tháng 8</td><td class="number">12</td><td class="number">3</td><td class="number">40</td><td class="number">130</td><td class="number">1.95</td></tr>
+                    <tr><td>Tháng 9</td><td class="number">15</td><td class="number">5</td><td class="number">50</td><td class="number">140</td><td class="number">2.1</td></tr>
+                    <tr><td>Tháng 10</td><td class="number">20</td><td class="number">8</td><td class="number">62</td><td class="number">200</td><td class="number">3.0</td></tr>
+                    <tr><td>Tháng 11</td><td class="number">35</td><td class="number">10</td><td class="number">87</td><td class="number">660</td><td class="number">9.9</td></tr>
+                    <tr><td>Tháng 12</td><td class="number">25</td><td class="number">12</td><td class="number">100</td><td class="number">500</td><td class="number">7.5</td></tr>
+                    <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>145</strong></td><td class="number"><strong>50</strong></td><td class="number"><strong>100</strong></td><td class="number"><strong>2015</strong></td><td class="number"><strong>30.23</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Báo cáo So sánh Doanh thu - Chi phí -->
+            <div class="report-card" id="comparisonReport">
+              <div class="report-card-header">
+                <h3><i class="fas fa-chart-line"></i> Báo cáo So sánh Doanh thu - Chi phí</h3>
+                <span class="report-badge comparison">So sánh</span>
+              </div>
+              <div class="report-card-body">
+                <table class="preview-table">
+                  <thead>
+                    <tr>
+                      <th>Tháng</th>
+                      <th>Doanh thu (Triệu VNĐ)</th>
+                      <th>Chi phí (Triệu VNĐ)</th>
+                      <th>Lợi nhuận (Triệu VNĐ)</th>
+                      <th>Tỷ lệ LN (%)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Tháng 1</td><td class="number">0</td><td class="number">0</td><td class="number">0</td><td class="number">0%</td></tr>
+                    <tr><td>Tháng 2</td><td class="number">0.5</td><td class="number">0.3</td><td class="number">0.2</td><td class="number">40%</td></tr>
+                    <tr><td>Tháng 3</td><td class="number">3</td><td class="number">2</td><td class="number">1</td><td class="number">33%</td></tr>
+                    <tr><td>Tháng 4</td><td class="number">5</td><td class="number">3.5</td><td class="number">1.5</td><td class="number">30%</td></tr>
+                    <tr><td>Tháng 5</td><td class="number">3</td><td class="number">2.2</td><td class="number">0.8</td><td class="number">27%</td></tr>
+                    <tr><td>Tháng 6</td><td class="number">5</td><td class="number">3.8</td><td class="number">1.2</td><td class="number">24%</td></tr>
+                    <tr><td>Tháng 7</td><td class="number">4</td><td class="number">3</td><td class="number">1</td><td class="number">25%</td></tr>
+                    <tr><td>Tháng 8</td><td class="number">6.5</td><td class="number">5</td><td class="number">1.5</td><td class="number">23%</td></tr>
+                    <tr><td>Tháng 9</td><td class="number">7</td><td class="number">5.5</td><td class="number">1.5</td><td class="number">21%</td></tr>
+                    <tr><td>Tháng 10</td><td class="number">10</td><td class="number">7.5</td><td class="number">2.5</td><td class="number">25%</td></tr>
+                    <tr><td>Tháng 11</td><td class="number">33</td><td class="number">25</td><td class="number">8</td><td class="number">24%</td></tr>
+                    <tr><td>Tháng 12</td><td class="number">25</td><td class="number">19</td><td class="number">6</td><td class="number">24%</td></tr>
+                    <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>102</strong></td><td class="number"><strong>76.8</strong></td><td class="number"><strong>25.2</strong></td><td class="number"><strong>25%</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Báo cáo Tổng hợp -->
+            <div class="report-card report-card-full" id="allReport">
+              <div class="report-card-header">
+                <h3><i class="fas fa-file-alt"></i> Báo cáo Tổng hợp</h3>
+                <span class="report-badge all">Tổng hợp</span>
+              </div>
+              <div class="report-card-body">
+                <div class="summary-grid">
+                  <div class="summary-item">
+                    <div class="summary-icon revenue"><i class="fas fa-money-bill-wave"></i></div>
+                    <div class="summary-content">
+                      <h4>Tổng Doanh thu</h4>
+                      <p class="summary-value">102 Triệu VNĐ</p>
+                      <span class="summary-change positive">+15.2% so với năm trước</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon orders"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="summary-content">
+                      <h4>Tổng Đơn hàng</h4>
+                      <p class="summary-value">865 đơn</p>
+                      <span class="summary-change positive">+22.5% so với năm trước</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon products"><i class="fas fa-box"></i></div>
+                    <div class="summary-content">
+                      <h4>Sản phẩm bán ra</h4>
+                      <p class="summary-value">2,015 sản phẩm</p>
+                      <span class="summary-change positive">+18.7% so với năm trước</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon employees"><i class="fas fa-users"></i></div>
+                    <div class="summary-content">
+                      <h4>Nhân viên hiện tại</h4>
+                      <p class="summary-value">100 người</p>
+                      <span class="summary-change positive">+95 người so với đầu năm</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon profit"><i class="fas fa-chart-line"></i></div>
+                    <div class="summary-content">
+                      <h4>Lợi nhuận ròng</h4>
+                      <p class="summary-value">25.2 Triệu VNĐ</p>
+                      <span class="summary-change positive">Tỷ lệ: 25%</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon cost"><i class="fas fa-coins"></i></div>
+                    <div class="summary-content">
+                      <h4>Tổng Chi phí</h4>
+                      <p class="summary-value">76.8 Triệu VNĐ</p>
+                      <span class="summary-change neutral">Tiền công: 30.23 Triệu</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -817,41 +1021,6 @@
           comparisonChart.update('active');
         });
 
-        // Export Modal functionality
-        const exportModal = document.getElementById('exportModal');
-        const previewModal = document.getElementById('previewModal');
-        const exportBtn = document.getElementById('exportBtn');
-        const closeModal = document.querySelector('.close-modal');
-        const closePreview = document.querySelector('.close-preview');
-        const cancelExportBtn = document.getElementById('cancelExportBtn');
-        const confirmExportBtn = document.getElementById('confirmExportBtn');
-        const previewBtn = document.getElementById('previewBtn');
-        const closePreviewBtn = document.getElementById('closePreview');
-        const exportFromPreview = document.getElementById('exportFromPreview');
-
-        // Open export modal
-        exportBtn.addEventListener('click', function() {
-          exportModal.style.display = 'block';
-        });
-
-        // Close export modal
-        closeModal.addEventListener('click', function() {
-          exportModal.style.display = 'none';
-        });
-
-        cancelExportBtn.addEventListener('click', function() {
-          exportModal.style.display = 'none';
-        });
-
-        // Close preview modal
-        closePreview.addEventListener('click', function() {
-          previewModal.style.display = 'none';
-        });
-
-        closePreviewBtn.addEventListener('click', function() {
-          previewModal.style.display = 'none';
-        });
-
         // Show/hide custom date range
         const reportPeriod = document.getElementById('reportPeriod');
         const customDateRange = document.getElementById('customDateRange');
@@ -864,132 +1033,13 @@
           }
         });
 
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-          if (event.target === exportModal) {
-            exportModal.style.display = 'none';
-          }
-          if (event.target === previewModal) {
-            previewModal.style.display = 'none';
-          }
-        });
-
-        // Generate preview table based on report type
-        function generatePreviewTable(type) {
-          let html = '';
-          
-          if (type === 'revenue') {
-            html = `
-              <table class="preview-table">
-                <thead>
-                  <tr>
-                    <th>Tháng</th>
-                    <th>Doanh thu (Triệu VNĐ)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Tháng 1</td><td class="number">0</td></tr>
-                  <tr><td>Tháng 2</td><td class="number">0.5</td></tr>
-                  <tr><td>Tháng 3</td><td class="number">3</td></tr>
-                  <tr><td>Tháng 4</td><td class="number">5</td></tr>
-                  <tr><td>Tháng 5</td><td class="number">3</td></tr>
-                  <tr><td>Tháng 6</td><td class="number">5</td></tr>
-                  <tr><td>Tháng 7</td><td class="number">4</td></tr>
-                  <tr><td>Tháng 8</td><td class="number">6.5</td></tr>
-                  <tr><td>Tháng 9</td><td class="number">7</td></tr>
-                  <tr><td>Tháng 10</td><td class="number">10</td></tr>
-                  <tr><td>Tháng 11</td><td class="number">33</td></tr>
-                  <tr><td>Tháng 12</td><td class="number">25</td></tr>
-                  <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>102</strong></td></tr>
-                </tbody>
-              </table>`;
-          } else if (type === 'products') {
-            html = `
-              <table class="preview-table">
-                <thead>
-                  <tr>
-                    <th>Sản phẩm</th>
-                    <th>Số lượng bán</th>
-                    <th>Lợi nhuận (Triệu VNĐ)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Túi handmade</td><td class="number">45</td><td class="number">4.2</td></tr>
-                  <tr><td>Thiệp handmade</td><td class="number">38</td><td class="number">2.8</td></tr>
-                  <tr><td>Móc khóa</td><td class="number">52</td><td class="number">5.1</td></tr>
-                  <tr><td>Vòng tay</td><td class="number">28</td><td class="number">2.3</td></tr>
-                  <tr><td>Hộp quà</td><td class="number">41</td><td class="number">4.8</td></tr>
-                  <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>204</strong></td><td class="number"><strong>19.2</strong></td></tr>
-                </tbody>
-              </table>`;
-          } else if (type === 'comparison') {
-            html = `
-              <table class="preview-table">
-                <thead>
-                  <tr>
-                    <th>Tháng</th>
-                    <th>Doanh thu (Triệu VNĐ)</th>
-                    <th>Chi phí (Triệu VNĐ)</th>
-                    <th>Lợi nhuận (Triệu VNĐ)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>Tháng 1</td><td class="number">0</td><td class="number">0</td><td class="number">0</td></tr>
-                  <tr><td>Tháng 2</td><td class="number">0.5</td><td class="number">0.3</td><td class="number">0.2</td></tr>
-                  <tr><td>Tháng 3</td><td class="number">3</td><td class="number">2</td><td class="number">1</td></tr>
-                  <tr><td>Tháng 4</td><td class="number">5</td><td class="number">3.5</td><td class="number">1.5</td></tr>
-                  <tr><td>Tháng 5</td><td class="number">3</td><td class="number">2.2</td><td class="number">0.8</td></tr>
-                  <tr><td>Tháng 6</td><td class="number">5</td><td class="number">3.8</td><td class="number">1.2</td></tr>
-                  <tr><td>Tháng 7</td><td class="number">4</td><td class="number">3</td><td class="number">1</td></tr>
-                  <tr><td>Tháng 8</td><td class="number">6.5</td><td class="number">5</td><td class="number">1.5</td></tr>
-                  <tr><td>Tháng 9</td><td class="number">7</td><td class="number">5.5</td><td class="number">1.5</td></tr>
-                  <tr><td>Tháng 10</td><td class="number">10</td><td class="number">7.5</td><td class="number">2.5</td></tr>
-                  <tr><td>Tháng 11</td><td class="number">33</td><td class="number">25</td><td class="number">8</td></tr>
-                  <tr><td>Tháng 12</td><td class="number">25</td><td class="number">19</td><td class="number">6</td></tr>
-                  <tr class="total-row"><td><strong>Tổng cộng</strong></td><td class="number"><strong>102</strong></td><td class="number"><strong>76.8</strong></td><td class="number"><strong>25.2</strong></td></tr>
-                </tbody>
-              </table>`;
-          }
-          
-          return html;
-        }
-
-        // Preview report
-        previewBtn.addEventListener('click', function() {
-          const reportType = document.getElementById('reportType').value;
-          const period = document.getElementById('reportPeriod').value;
-          const format = document.getElementById('exportFormat').value;
-          
-          // Update preview modal
-          document.getElementById('previewTitle').innerHTML = '<i class="fas fa-file-alt"></i> ' + getReportTypeName(reportType);
-          document.getElementById('previewInfo').textContent = getReportTypeName(reportType) + ' - ' + getPeriodName(period);
-          
-          // Update format badge
-          const formatBadge = document.getElementById('previewFormat');
-          formatBadge.textContent = format.toUpperCase();
-          formatBadge.className = 'preview-format ' + format;
-          
-          // Generate table
-          document.getElementById('previewTableContainer').innerHTML = generatePreviewTable(reportType);
-          
-          // Hide export modal, show preview modal
-          exportModal.style.display = 'none';
-          previewModal.style.display = 'block';
-        });
-
-        // Export from preview
-        exportFromPreview.addEventListener('click', function() {
-          alert('Báo cáo đã được tải xuống!');
-          previewModal.style.display = 'none';
-        });
-
         // Export report directly
+        const confirmExportBtn = document.getElementById('confirmExportBtn');
         confirmExportBtn.addEventListener('click', function() {
           const reportType = document.getElementById('reportType').value;
           const format = document.getElementById('exportFormat').value;
           
           alert('Đang xuất ' + getReportTypeName(reportType) + ' (' + format.toUpperCase() + ')...\n\nBáo cáo đã được tải xuống!');
-          exportModal.style.display = 'none';
         });
 
         function getReportTypeName(type) {
