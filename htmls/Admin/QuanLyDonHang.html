@@ -188,6 +188,12 @@
             </div>
           </div>
 
+          <!-- View Toggle -->
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="table"><i class="fas fa-list"></i> Danh sách</button>
+            <button class="view-btn" data-view="kanban"><i class="fas fa-columns"></i> Kanban Board</button>
+          </div>
+
           <!-- Order Filters -->
           <div class="order-filters">
             <div class="status-tabs">
@@ -411,6 +417,159 @@
               </tbody>
             </table>
           </div>
+
+          <!-- Kanban Board View -->
+          <div class="kanban-board" id="kanban-board" style="display: none;">
+            <!-- Cột Chờ xác nhận -->
+            <div class="kanban-column" data-status="pending">
+              <div class="kanban-column-header pending">
+                <h3><i class="fas fa-clock"></i> Chờ xác nhận</h3>
+                <span class="column-count">2</span>
+              </div>
+              <div class="kanban-cards" id="pending-cards">
+                <div class="kanban-card" draggable="true" data-order-id="ORD-8953">
+                  <div class="card-header">
+                    <span class="order-id">#ORD-8953</span>
+                    <span class="order-date">15/06/2023</span>
+                  </div>
+                  <div class="card-customer">
+                    <i class="fas fa-user"></i>
+                    <span>Phạm Văn E</span>
+                  </div>
+                  <div class="card-products">
+                    <i class="fas fa-box"></i>
+                    <span>3 sản phẩm</span>
+                  </div>
+                  <div class="card-footer">
+                    <span class="card-total">520.000₫</span>
+                    <span class="payment-badge unpaid">Chưa TT</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="card-btn" title="Xem"><i class="fas fa-eye"></i></button>
+                    <button class="card-btn" title="Xác nhận"><i class="fas fa-check"></i></button>
+                  </div>
+                </div>
+                <div class="kanban-card" draggable="true" data-order-id="ORD-8951">
+                  <div class="card-header">
+                    <span class="order-id">#ORD-8951</span>
+                    <span class="order-date">15/06/2023</span>
+                  </div>
+                  <div class="card-customer">
+                    <i class="fas fa-user"></i>
+                    <span>Nguyễn Văn A</span>
+                  </div>
+                  <div class="card-products">
+                    <i class="fas fa-box"></i>
+                    <span>1 sản phẩm</span>
+                  </div>
+                  <div class="card-footer">
+                    <span class="card-total">280.000₫</span>
+                    <span class="payment-badge paid">Đã TT</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="card-btn" title="Xem"><i class="fas fa-eye"></i></button>
+                    <button class="card-btn" title="Xác nhận"><i class="fas fa-check"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cột Đang xử lý -->
+            <div class="kanban-column" data-status="processing">
+              <div class="kanban-column-header processing">
+                <h3><i class="fas fa-cog"></i> Đang xử lý</h3>
+                <span class="column-count">1</span>
+              </div>
+              <div class="kanban-cards" id="processing-cards">
+                <div class="kanban-card" draggable="true" data-order-id="ORD-8955">
+                  <div class="card-header">
+                    <span class="order-id">#ORD-8955</span>
+                    <span class="order-date">15/06/2023</span>
+                  </div>
+                  <div class="card-customer">
+                    <i class="fas fa-user"></i>
+                    <span>Trần Văn C</span>
+                  </div>
+                  <div class="card-products">
+                    <i class="fas fa-box"></i>
+                    <span>2 sản phẩm</span>
+                  </div>
+                  <div class="card-footer">
+                    <span class="card-total">350.000₫</span>
+                    <span class="payment-badge unpaid">COD</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="card-btn" title="Xem"><i class="fas fa-eye"></i></button>
+                    <button class="card-btn" title="Giao hàng"><i class="fas fa-truck"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cột Đang giao -->
+            <div class="kanban-column" data-status="shipping">
+              <div class="kanban-column-header shipping">
+                <h3><i class="fas fa-shipping-fast"></i> Đang giao</h3>
+                <span class="column-count">1</span>
+              </div>
+              <div class="kanban-cards" id="shipping-cards">
+                <div class="kanban-card" draggable="true" data-order-id="ORD-8954">
+                  <div class="card-header">
+                    <span class="order-id">#ORD-8954</span>
+                    <span class="order-date">15/06/2023</span>
+                  </div>
+                  <div class="card-customer">
+                    <i class="fas fa-user"></i>
+                    <span>Lê Thị D</span>
+                  </div>
+                  <div class="card-products">
+                    <i class="fas fa-box"></i>
+                    <span>5 sản phẩm</span>
+                  </div>
+                  <div class="card-footer">
+                    <span class="card-total">1.250.000₫</span>
+                    <span class="payment-badge paid">Đã TT</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="card-btn" title="Xem"><i class="fas fa-eye"></i></button>
+                    <button class="card-btn" title="Hoàn thành"><i class="fas fa-check-double"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cột Hoàn thành -->
+            <div class="kanban-column" data-status="delivered">
+              <div class="kanban-column-header delivered">
+                <h3><i class="fas fa-check-circle"></i> Hoàn thành</h3>
+                <span class="column-count">1</span>
+              </div>
+              <div class="kanban-cards" id="delivered-cards">
+                <div class="kanban-card completed" draggable="true" data-order-id="ORD-8956">
+                  <div class="card-header">
+                    <span class="order-id">#ORD-8956</span>
+                    <span class="order-date">15/06/2023</span>
+                  </div>
+                  <div class="card-customer">
+                    <i class="fas fa-user"></i>
+                    <span>Nguyễn Thị B</span>
+                  </div>
+                  <div class="card-products">
+                    <i class="fas fa-box"></i>
+                    <span>4 sản phẩm</span>
+                  </div>
+                  <div class="card-footer">
+                    <span class="card-total">850.000₫</span>
+                    <span class="payment-badge paid">Đã TT</span>
+                  </div>
+                  <div class="card-actions">
+                    <button class="card-btn" title="Xem"><i class="fas fa-eye"></i></button>
+                    <button class="card-btn" title="In hóa đơn"><i class="fas fa-print"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           
           <!-- Bulk Actions -->
           <!-- <div class="bulk-actions">
@@ -432,16 +591,6 @@
           
           <!-- Pagination -->
           <div class="pagination-container">
-            <!-- <div class="items-per-page">
-              <span>Hiển thị</span>
-              <select id="items-per-page-select">
-                <option value="5">5</option>
-                <option value="10" selected>10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-              </select>
-              <span>mục mỗi trang</span>
-            </div> -->
             <div class="pagination">
               <button class="pagination-btn prev" disabled><i class="fas fa-chevron-left"></i></button>
               <button class="pagination-btn page active">1</button>
@@ -455,6 +604,231 @@
         </div>
       </div>
     </main>
+
+    <!-- ========== PHẦN TEST - HIỂN THỊ TRỰC TIẾP 2 CHẾ ĐỘ XEM ========== -->
+    <section class="test-section" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 20px; margin: 0;">
+      <div class="admin-breadcrumb" style="padding: 15px 20px;">
+        <span style="color: #e65100; font-weight: 600;"><i class="fas fa-flask"></i> PHẦN TEST - Hai Chế Độ Xem Đơn Hàng</span>
+      </div>
+      
+      <div class="admin-container">
+        <!-- Sidebar giả lập -->
+        <div class="admin-sidebar" style="opacity: 0.6;">
+          <div class="sidebar-header">
+            <div class="admin-avatar">
+              <img src="../../images/admin.jpg" alt="Admin" />
+            </div>
+            <div class="admin-info">
+              <h3>Test Mode</h3>
+              <p>Sidebar Demo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Area Test -->
+        <div class="admin-content">
+          <div class="page-title">
+            <h1 style="color: #e65100;"><i class="fas fa-flask"></i> TEST: Chế Độ Xem Danh Sách</h1>
+          </div>
+
+          <!-- TEST: Bảng đơn hàng -->
+          <div class="orders-table-container" style="margin-bottom: 30px;">
+          <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="background: #f8f9fa;">
+                <th style="padding: 12px 15px; text-align: left; font-weight: 600; color: #333; border-bottom: 2px solid #eee;">Mã đơn</th>
+                <th style="padding: 12px 15px; text-align: left; font-weight: 600; color: #333; border-bottom: 2px solid #eee;">Khách hàng</th>
+                <th style="padding: 12px 15px; text-align: left; font-weight: 600; color: #333; border-bottom: 2px solid #eee;">Ngày đặt</th>
+                <th style="padding: 12px 15px; text-align: left; font-weight: 600; color: #333; border-bottom: 2px solid #eee;">Tổng tiền</th>
+                <th style="padding: 12px 15px; text-align: left; font-weight: 600; color: #333; border-bottom: 2px solid #eee;">Thanh toán</th>
+                <th style="padding: 12px 15px; text-align: left; font-weight: 600; color: #333; border-bottom: 2px solid #eee;">Trạng thái</th>
+                <th style="padding: 12px 15px; text-align: left; font-weight: 600; color: #333; border-bottom: 2px solid #eee;">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 12px 15px; font-weight: 500;">#ORD-8956</td>
+                <td style="padding: 12px 15px;">
+                  <div style="font-weight: 500; color: #333;">Nguyễn Thị B</div>
+                  <div style="font-size: 12px; color: #888;">0987654321</div>
+                </td>
+                <td style="padding: 12px 15px; color: #666;">15/06/2023</td>
+                <td style="padding: 12px 15px; font-weight: 600; color: #ff6b9d;">850.000₫</td>
+                <td style="padding: 12px 15px;">
+                  <span style="display: block; color: #28a745; font-weight: 500; font-size: 13px;">Đã thanh toán</span>
+                  <span style="font-size: 12px; color: #888;">Chuyển khoản</span>
+                </td>
+                <td style="padding: 12px 15px;"><span style="padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; background: #d4edda; color: #155724;">Đã giao</span></td>
+                <td style="padding: 12px 15px;">
+                  <button style="width: 32px; height: 32px; border: none; background: #e6f0ff; color: #0072c6; border-radius: 6px; cursor: pointer; margin-right: 5px;"><i class="fas fa-eye"></i></button>
+                  <button style="width: 32px; height: 32px; border: none; background: #d4edda; color: #155724; border-radius: 6px; cursor: pointer; margin-right: 5px;"><i class="fas fa-print"></i></button>
+                  <button style="width: 32px; height: 32px; border: none; background: #d1ecf1; color: #0c5460; border-radius: 6px; cursor: pointer;"><i class="fas fa-comment"></i></button>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 12px 15px; font-weight: 500;">#ORD-8955</td>
+                <td style="padding: 12px 15px;">
+                  <div style="font-weight: 500; color: #333;">Trần Văn C</div>
+                  <div style="font-size: 12px; color: #888;">0976543210</div>
+                </td>
+                <td style="padding: 12px 15px; color: #666;">15/06/2023</td>
+                <td style="padding: 12px 15px; font-weight: 600; color: #ff6b9d;">350.000₫</td>
+                <td style="padding: 12px 15px;">
+                  <span style="display: block; color: #ffc107; font-weight: 500; font-size: 13px;">Chưa thanh toán</span>
+                  <span style="font-size: 12px; color: #888;">COD</span>
+                </td>
+                <td style="padding: 12px 15px;"><span style="padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; background: #cce5ff; color: #004085;">Đang xử lý</span></td>
+                <td style="padding: 12px 15px;">
+                  <button style="width: 32px; height: 32px; border: none; background: #e6f0ff; color: #0072c6; border-radius: 6px; cursor: pointer; margin-right: 5px;"><i class="fas fa-eye"></i></button>
+                  <button style="width: 32px; height: 32px; border: none; background: #e6f0ff; color: #0072c6; border-radius: 6px; cursor: pointer; margin-right: 5px;"><i class="fas fa-edit"></i></button>
+                  <button style="width: 32px; height: 32px; border: none; background: #d1ecf1; color: #0c5460; border-radius: 6px; cursor: pointer;"><i class="fas fa-comment"></i></button>
+                </td>
+              </tr>
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 12px 15px; font-weight: 500;">#ORD-8954</td>
+                <td style="padding: 12px 15px;">
+                  <div style="font-weight: 500; color: #333;">Lê Thị D</div>
+                  <div style="font-size: 12px; color: #888;">0912345678</div>
+                </td>
+                <td style="padding: 12px 15px; color: #666;">15/06/2023</td>
+                <td style="padding: 12px 15px; font-weight: 600; color: #ff6b9d;">1.250.000₫</td>
+                <td style="padding: 12px 15px;">
+                  <span style="display: block; color: #28a745; font-weight: 500; font-size: 13px;">Đã thanh toán</span>
+                  <span style="font-size: 12px; color: #888;">MoMo</span>
+                </td>
+                <td style="padding: 12px 15px;"><span style="padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; background: #d1ecf1; color: #0c5460;">Đang giao</span></td>
+                <td style="padding: 12px 15px;">
+                  <button style="width: 32px; height: 32px; border: none; background: #e6f0ff; color: #0072c6; border-radius: 6px; cursor: pointer; margin-right: 5px;"><i class="fas fa-eye"></i></button>
+                  <button style="width: 32px; height: 32px; border: none; background: #e6f0ff; color: #0072c6; border-radius: 6px; cursor: pointer; margin-right: 5px;"><i class="fas fa-edit"></i></button>
+                  <button style="width: 32px; height: 32px; border: none; background: #d4edda; color: #155724; border-radius: 6px; cursor: pointer;"><i class="fas fa-truck"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+          <!-- TEST: Kanban Board -->
+          <div class="page-title" style="margin-top: 40px;">
+            <h1 style="color: #e65100;"><i class="fas fa-flask"></i> TEST: Chế Độ Xem Kanban Board</h1>
+          </div>
+          
+          <div class="kanban-board" style="display: grid;">
+          
+          <!-- Cột Chờ xác nhận -->
+          <div class="kanban-column" data-status="pending">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; border-radius: 8px; margin-bottom: 15px; background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); color: #856404;">
+              <h4 style="margin: 0; font-size: 14px; display: flex; align-items: center; gap: 8px;"><i class="fas fa-clock"></i> Chờ xác nhận</h4>
+              <span style="background: rgba(255,255,255,0.8); padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">2</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #ffc107; cursor: grab;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; color: #333;">#ORD-8953</span>
+                  <span style="font-size: 11px; color: #999;">15/06/2023</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13px; color: #555;"><i class="fas fa-user" style="color: #ff6b9d; font-size: 12px;"></i> Phạm Văn E</div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12px; color: #888;"><i class="fas fa-box"></i> 3 sản phẩm</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #eee;">
+                  <span style="font-weight: 700; color: #ff6b9d;">520.000₫</span>
+                  <span style="padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; background: #fff3cd; color: #856404;">Chưa TT</span>
+                </div>
+              </div>
+              <div style="background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #ffc107; cursor: grab;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; color: #333;">#ORD-8951</span>
+                  <span style="font-size: 11px; color: #999;">15/06/2023</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13px; color: #555;"><i class="fas fa-user" style="color: #ff6b9d; font-size: 12px;"></i> Nguyễn Văn A</div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12px; color: #888;"><i class="fas fa-box"></i> 1 sản phẩm</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #eee;">
+                  <span style="font-weight: 700; color: #ff6b9d;">280.000₫</span>
+                  <span style="padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; background: #d4edda; color: #155724;">Đã TT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột Đang xử lý -->
+          <div class="kanban-column" data-status="processing">
+            <div class="kanban-column-header processing">
+              <h3><i class="fas fa-cog"></i> Đang xử lý</h3>
+              <span class="column-count">1</span>
+            </div>
+            <div class="kanban-cards">
+              <div class="kanban-card" draggable="true" data-order-id="ORD-8955">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; color: #333;">#ORD-8955</span>
+                  <span style="font-size: 11px; color: #999;">15/06/2023</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13px; color: #555;"><i class="fas fa-user" style="color: #ff6b9d; font-size: 12px;"></i> Trần Văn C</div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12px; color: #888;"><i class="fas fa-box"></i> 2 sản phẩm</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #eee;">
+                  <span style="font-weight: 700; color: #ff6b9d;">350.000₫</span>
+                  <span style="padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; background: #fff3cd; color: #856404;">COD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột Đang giao -->
+          <div class="kanban-column" data-status="shipping">
+            <div class="kanban-column-header shipping">
+              <h3><i class="fas fa-shipping-fast"></i> Đang giao</h3>
+              <span class="column-count">1</span>
+            </div>
+            <div class="kanban-cards">
+              <div class="kanban-card" draggable="true" data-order-id="ORD-8954">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; color: #333;">#ORD-8954</span>
+                  <span style="font-size: 11px; color: #999;">15/06/2023</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13px; color: #555;"><i class="fas fa-user" style="color: #ff6b9d; font-size: 12px;"></i> Lê Thị D</div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 12px; color: #888;"><i class="fas fa-box"></i> 5 sản phẩm</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid #eee;">
+                  <span style="font-weight: 700; color: #ff6b9d;">1.250.000₫</span>
+                  <span style="padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: 600; background: #d4edda; color: #155724;">Đã TT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột Hoàn thành -->
+          <div class="kanban-column" data-status="delivered">
+            <div class="kanban-column-header delivered">
+              <h3><i class="fas fa-check-circle"></i> Hoàn thành</h3>
+              <span class="column-count">1</span>
+            </div>
+            <div class="kanban-cards">
+              <div class="kanban-card completed" draggable="true" data-order-id="ORD-8956">
+                <div class="card-header">
+                  <span class="order-id">#ORD-8956</span>
+                  <span class="order-date">15/06/2023</span>
+                </div>
+                <div class="card-customer">
+                  <i class="fas fa-user"></i>
+                  <span>Nguyễn Thị B</span>
+                </div>
+                <div class="card-products">
+                  <i class="fas fa-box"></i>
+                  <span>4 sản phẩm</span>
+                </div>
+                <div class="card-footer">
+                  <span class="card-total">850.000₫</span>
+                  <span class="payment-badge paid">Đã TT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          </div>
+          
+          <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; margin-top: 20px;">
+            <p style="margin: 0; color: #888; font-size: 13px;"><i class="fas fa-info-circle"></i> Kéo thả các thẻ đơn hàng giữa các cột để thay đổi trạng thái</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== KẾT THÚC PHẦN TEST ========== -->
 
     <footer>
       <div class="item item-1">
@@ -501,5 +875,201 @@
     <script src="../../js/utils/auth.js"></script>
     <script src="../../js/utils/cart.js"></script>
     <script src="../../js/components/orders.js"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // ========== VIEW TOGGLE ==========
+        const viewBtns = document.querySelectorAll('.view-btn');
+        const tableView = document.querySelector('.orders-table-container');
+        const kanbanView = document.getElementById('kanban-board');
+        const orderFilters = document.querySelector('.order-filters');
+        const paginationContainer = document.querySelector('.pagination-container');
+        
+        viewBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            viewBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const view = this.dataset.view;
+            if (view === 'kanban') {
+              tableView.style.display = 'none';
+              kanbanView.style.display = 'grid';
+              orderFilters.style.display = 'none';
+              paginationContainer.style.display = 'none';
+            } else {
+              tableView.style.display = 'block';
+              kanbanView.style.display = 'none';
+              orderFilters.style.display = 'block';
+              paginationContainer.style.display = 'flex';
+            }
+          });
+        });
+        
+        // ========== DRAG AND DROP ==========
+        const cards = document.querySelectorAll('.kanban-card');
+        const columns = document.querySelectorAll('.kanban-cards');
+        
+        let draggedCard = null;
+        
+        // Card drag events
+        cards.forEach(card => {
+          card.addEventListener('dragstart', function(e) {
+            draggedCard = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.innerHTML);
+            
+            // Delay để hiệu ứng mượt hơn
+            setTimeout(() => {
+              this.style.opacity = '0.4';
+            }, 0);
+          });
+          
+          card.addEventListener('dragend', function() {
+            this.classList.remove('dragging');
+            this.style.opacity = '1';
+            
+            // Thêm animation khi thả
+            this.classList.add('dropped');
+            setTimeout(() => {
+              this.classList.remove('dropped');
+            }, 300);
+            
+            // Cập nhật số lượng
+            updateColumnCounts();
+          });
+        });
+        
+        // Column drop events
+        columns.forEach(column => {
+          column.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('drag-over');
+            
+            const afterElement = getDragAfterElement(this, e.clientY);
+            if (afterElement == null) {
+              this.appendChild(draggedCard);
+            } else {
+              this.insertBefore(draggedCard, afterElement);
+            }
+          });
+          
+          column.addEventListener('dragleave', function() {
+            this.classList.remove('drag-over');
+          });
+          
+          column.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            
+            // Lấy trạng thái mới
+            const newStatus = this.closest('.kanban-column').dataset.status;
+            const orderId = draggedCard.dataset.orderId;
+            
+            // Cập nhật border color theo trạng thái
+            updateCardStyle(draggedCard, newStatus);
+            
+            // Hiển thị thông báo
+            showStatusChangeNotification(orderId, newStatus);
+          });
+        });
+        
+        // Hàm tìm vị trí thả
+        function getDragAfterElement(container, y) {
+          const draggableElements = [...container.querySelectorAll('.kanban-card:not(.dragging)')];
+          
+          return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            
+            if (offset < 0 && offset > closest.offset) {
+              return { offset: offset, element: child };
+            } else {
+              return closest;
+            }
+          }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+        
+        // Cập nhật style card theo trạng thái
+        function updateCardStyle(card, status) {
+          const colors = {
+            'pending': '#ffc107',
+            'processing': '#007bff',
+            'shipping': '#17a2b8',
+            'delivered': '#28a745'
+          };
+          card.style.borderLeftColor = colors[status] || '#ffc107';
+          
+          if (status === 'delivered') {
+            card.classList.add('completed');
+          } else {
+            card.classList.remove('completed');
+          }
+        }
+        
+        // Cập nhật số lượng trong mỗi cột
+        function updateColumnCounts() {
+          document.querySelectorAll('.kanban-column').forEach(column => {
+            const count = column.querySelectorAll('.kanban-card').length;
+            column.querySelector('.column-count').textContent = count;
+          });
+        }
+        
+        // Hiển thị thông báo
+        function showStatusChangeNotification(orderId, status) {
+          const statusNames = {
+            'pending': 'Chờ xác nhận',
+            'processing': 'Đang xử lý',
+            'shipping': 'Đang giao',
+            'delivered': 'Hoàn thành'
+          };
+          
+          // Tạo toast notification
+          const toast = document.createElement('div');
+          toast.className = 'status-toast';
+          toast.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            <span>Đơn hàng <strong>#${orderId}</strong> đã chuyển sang <strong>${statusNames[status]}</strong></span>
+          `;
+          toast.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #28a745 0%, #34ce57 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+          `;
+          
+          document.body.appendChild(toast);
+          
+          setTimeout(() => {
+            toast.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => toast.remove(), 300);
+          }, 3000);
+        }
+        
+        // Thêm CSS animation cho toast
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+          }
+        `;
+        document.head.appendChild(style);
+      });
+    </script>
   </body>
 </html> 

@@ -86,16 +86,22 @@
             <label class="payment-option">
               <input type="radio" name="payment" value="cod" checked />
               <span class="radio-custom"></span>
-              <span class="label-text"
-                ><i class="fas fa-truck"></i> Thanh toán khi nhận hàng (COD)</span
-              >
+              <span class="label-text"><i class="fas fa-truck"></i> Thanh toán khi nhận hàng (COD)</span>
             </label>
             <label class="payment-option">
               <input type="radio" name="payment" value="bank" />
               <span class="radio-custom"></span>
-              <span class="label-text"
-                ><i class="fas fa-university"></i> Chuyển khoản ngân hàng</span
-              >
+              <span class="label-text"><i class="fas fa-university"></i> Chuyển khoản ngân hàng</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="momo" />
+              <span class="radio-custom"></span>
+              <span class="label-text"><i class="fas fa-wallet"></i> Ví MoMo</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="vnpay" />
+              <span class="radio-custom"></span>
+              <span class="label-text"><i class="fas fa-qrcode"></i> VNPay QR</span>
             </label>
           </div>
         </div>
@@ -148,6 +154,416 @@
       </div>
     </div>
 
+    <!-- ========== PHẦN TEST - CÁC MODAL THANH TOÁN MOMO HIỂN THỊ TRỰC TIẾP ========== -->
+    <section class="test-section" style="padding: 40px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); margin-top: 40px;">
+      <div class="test-section-header" style="text-align: center; margin-bottom: 40px; padding: 20px; background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-radius: 12px; border: 2px dashed #ff9800; max-width: 900px; margin: 0 auto 40px;">
+        <h2 style="color: #e65100; margin: 0 0 10px 0; font-size: 24px;"><i class="fas fa-flask"></i> PHẦN TEST - Các Modal Thanh Toán MoMo</h2>
+        <p style="color: #f57c00; margin: 0; font-size: 14px;">Các modal bên dưới là bản sao để test giao diện, không ảnh hưởng đến chức năng popup</p>
+      </div>
+
+      <!-- TEST: Modal QR MoMo -->
+      <div class="test-modal-container" style="max-width: 450px; margin: 0 auto 40px; background: #fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); overflow: hidden;">
+        <div class="test-modal-title" style="padding: 15px 20px; background: linear-gradient(135deg, #a50064 0%, #d82d8b 100%); color: white; font-size: 16px; font-weight: 600; text-align: center;">
+          <i class="fas fa-wallet"></i> Modal QR MoMo (TEST)
+        </div>
+        <div style="padding: 30px; text-align: center;">
+          <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #a50064 0%, #d82d8b 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+            <i class="fas fa-wallet" style="font-size: 28px; color: white;"></i>
+          </div>
+          <h2 style="margin: 0 0 5px; font-size: 22px; color: #333;">Thanh toán qua MoMo</h2>
+          <p style="margin: 0 0 20px; color: #888; font-size: 14px;">Quét mã QR để thanh toán</p>
+          
+          <div style="width: 180px; height: 180px; margin: 0 auto 15px; padding: 15px; background: white; border: 3px solid #d82d8b; border-radius: 15px; position: relative;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <rect width="200" height="200" fill="white"/>
+              <g fill="#a50064">
+                <rect x="10" y="10" width="60" height="60"/>
+                <rect x="20" y="20" width="40" height="40" fill="white"/>
+                <rect x="30" y="30" width="20" height="20"/>
+                <rect x="130" y="10" width="60" height="60"/>
+                <rect x="140" y="20" width="40" height="40" fill="white"/>
+                <rect x="150" y="30" width="20" height="20"/>
+                <rect x="10" y="130" width="60" height="60"/>
+                <rect x="20" y="140" width="40" height="40" fill="white"/>
+                <rect x="30" y="150" width="20" height="20"/>
+                <rect x="80" y="80" width="40" height="40"/>
+                <rect x="90" y="90" width="20" height="20" fill="white"/>
+                <rect x="130" y="130" width="30" height="30"/>
+                <rect x="170" y="130" width="20" height="20"/>
+                <rect x="130" y="170" width="20" height="20"/>
+                <rect x="160" y="160" width="30" height="30"/>
+              </g>
+            </svg>
+            <div style="position: absolute; top: 0; left: 15px; right: 15px; height: 3px; background: linear-gradient(90deg, transparent, #d82d8b, transparent); animation: scanLine 2s linear infinite;"></div>
+          </div>
+          <p style="font-size: 12px; color: #d82d8b; margin: 10px 0 20px;">👆 Click vào mã QR để giả lập quét thành công</p>
+          
+          <div style="background: #f8f9fa; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left;">
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #e0e0e0;">
+              <span style="color: #888; font-size: 13px;">Số tiền:</span>
+              <span style="font-weight: 700; color: #d82d8b; font-size: 18px;">649.000đ</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #e0e0e0;">
+              <span style="color: #888; font-size: 13px;">Nội dung CK:</span>
+              <span style="font-weight: 600; color: #333; font-size: 13px;">DH123456 NGUYEN VAN A</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+              <span style="color: #888; font-size: 13px;">Ví điện tử:</span>
+              <span style="font-weight: 600; color: #333; font-size: 13px;">Ví MoMo</span>
+            </div>
+          </div>
+          
+          <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%); padding: 12px 20px; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: #856404;">
+            <i class="fas fa-clock"></i>
+            <span>Giao dịch hết hạn sau: </span>
+            <span style="font-weight: 700; font-size: 18px; color: #dc3545;">14:59</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEST: Modal Processing -->
+      <div class="test-modal-container" style="max-width: 350px; margin: 0 auto 40px; background: #fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); overflow: hidden;">
+        <div class="test-modal-title" style="padding: 15px 20px; background: linear-gradient(135deg, #a50064 0%, #d82d8b 100%); color: white; font-size: 16px; font-weight: 600; text-align: center;">
+          <i class="fas fa-spinner"></i> Modal Đang Xử Lý (TEST)
+        </div>
+        <div style="padding: 50px; text-align: center;">
+          <div style="position: relative; width: 100px; height: 100px; margin: 0 auto 25px;">
+            <div style="position: absolute; width: 100%; height: 100%; border: 4px solid #f0f0f0; border-top-color: #d82d8b; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <i class="fas fa-sync-alt" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 30px; color: #d82d8b; animation: spinReverse 2s linear infinite;"></i>
+          </div>
+          <h3 style="margin: 0 0 10px; color: #333; font-size: 20px;">Đang xử lý giao dịch...</h3>
+          <p style="margin: 0; color: #888; font-size: 14px;">Vui lòng không tắt trình duyệt</p>
+        </div>
+      </div>
+
+      <!-- TEST: Modal Thành Công -->
+      <div class="test-modal-container" style="max-width: 450px; margin: 0 auto 40px; background: #fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); overflow: hidden;">
+        <div class="test-modal-title" style="padding: 15px 20px; background: linear-gradient(135deg, #28a745 0%, #34ce57 100%); color: white; font-size: 16px; font-weight: 600; text-align: center;">
+          <i class="fas fa-check-circle"></i> Modal Thành Công (TEST)
+        </div>
+        <div style="padding: 40px; text-align: center;">
+          <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #28a745 0%, #34ce57 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px;">
+            <i class="fas fa-check" style="font-size: 50px; color: white;"></i>
+          </div>
+          <h2 style="margin: 0 0 10px; color: #28a745; font-size: 28px;">Đặt hàng thành công!</h2>
+          <p style="background: #f8f9fa; padding: 10px 20px; border-radius: 8px; display: inline-block; margin-bottom: 15px; font-size: 14px; color: #666;">Mã đơn hàng: <strong style="color: #333;">#DH123456</strong></p>
+          <p style="color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 25px;">Cảm ơn bạn đã mua hàng. Chúng tôi sẽ liên hệ xác nhận đơn hàng trong thời gian sớm nhất.</p>
+          
+          <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 8px 0; font-size: 14px; color: #555;">
+              <i class="fas fa-money-bill-wave" style="color: #d82d8b;"></i>
+              <span>Tổng tiền: <strong style="color: #333;">649.000đ</strong></span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 8px 0; font-size: 14px; color: #555;">
+              <i class="fas fa-credit-card" style="color: #d82d8b;"></i>
+              <span>Thanh toán: <strong style="color: #333;">Ví MoMo</strong></span>
+            </div>
+          </div>
+          
+          <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="#" style="padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; background: #f5f5f5; color: #333; display: flex; align-items: center; gap: 8px;"><i class="fas fa-home"></i> Về trang chủ</a>
+            <a href="#" style="padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; background: linear-gradient(135deg, #d82d8b 0%, #a50064 100%); color: white; display: flex; align-items: center; gap: 8px;"><i class="fas fa-truck"></i> Theo dõi đơn hàng</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== KẾT THÚC PHẦN TEST ========== -->
+
+    <!-- Overlay QR Code Payment -->
+    <div class="payment-overlay" id="qr-overlay">
+      <div class="qr-popup">
+        <button class="close-popup" id="close-qr">&times;</button>
+        
+        <div class="qr-header">
+          <div class="qr-logo" id="qr-logo">
+            <i class="fas fa-university"></i>
+          </div>
+          <h2 id="qr-title">Thanh toán qua Ngân hàng</h2>
+          <p class="qr-subtitle">Quét mã QR để thanh toán</p>
+        </div>
+        
+        <div class="qr-content">
+          <div class="qr-code-container" id="qr-clickable">
+            <div class="qr-code">
+              <!-- QR Code SVG -->
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="white"/>
+                <g fill="#000">
+                  <rect x="10" y="10" width="60" height="60"/>
+                  <rect x="20" y="20" width="40" height="40" fill="white"/>
+                  <rect x="30" y="30" width="20" height="20"/>
+                  <rect x="130" y="10" width="60" height="60"/>
+                  <rect x="140" y="20" width="40" height="40" fill="white"/>
+                  <rect x="150" y="30" width="20" height="20"/>
+                  <rect x="10" y="130" width="60" height="60"/>
+                  <rect x="20" y="140" width="40" height="40" fill="white"/>
+                  <rect x="30" y="150" width="20" height="20"/>
+                  <rect x="80" y="10" width="10" height="10"/>
+                  <rect x="100" y="10" width="10" height="10"/>
+                  <rect x="80" y="30" width="10" height="10"/>
+                  <rect x="100" y="30" width="10" height="10"/>
+                  <rect x="110" y="30" width="10" height="10"/>
+                  <rect x="80" y="50" width="10" height="10"/>
+                  <rect x="100" y="50" width="10" height="10"/>
+                  <rect x="80" y="80" width="10" height="10"/>
+                  <rect x="90" y="80" width="10" height="10"/>
+                  <rect x="100" y="80" width="10" height="10"/>
+                  <rect x="110" y="80" width="10" height="10"/>
+                  <rect x="80" y="90" width="10" height="10"/>
+                  <rect x="110" y="90" width="10" height="10"/>
+                  <rect x="80" y="100" width="10" height="10"/>
+                  <rect x="90" y="100" width="10" height="10"/>
+                  <rect x="100" y="100" width="10" height="10"/>
+                  <rect x="110" y="100" width="10" height="10"/>
+                  <rect x="130" y="80" width="10" height="10"/>
+                  <rect x="150" y="80" width="10" height="10"/>
+                  <rect x="170" y="80" width="10" height="10"/>
+                  <rect x="130" y="100" width="10" height="10"/>
+                  <rect x="160" y="100" width="10" height="10"/>
+                  <rect x="180" y="100" width="10" height="10"/>
+                  <rect x="130" y="130" width="10" height="10"/>
+                  <rect x="150" y="130" width="10" height="10"/>
+                  <rect x="170" y="130" width="10" height="10"/>
+                  <rect x="140" y="140" width="10" height="10"/>
+                  <rect x="160" y="140" width="10" height="10"/>
+                  <rect x="180" y="140" width="10" height="10"/>
+                  <rect x="130" y="160" width="10" height="10"/>
+                  <rect x="150" y="160" width="10" height="10"/>
+                  <rect x="170" y="160" width="10" height="10"/>
+                  <rect x="80" y="130" width="10" height="10"/>
+                  <rect x="100" y="130" width="10" height="10"/>
+                  <rect x="80" y="150" width="10" height="10"/>
+                  <rect x="110" y="150" width="10" height="10"/>
+                  <rect x="80" y="170" width="10" height="10"/>
+                  <rect x="100" y="170" width="10" height="10"/>
+                </g>
+              </svg>
+              <div class="qr-scan-line"></div>
+            </div>
+            <p class="qr-hint">👆 Click vào mã QR để giả lập quét thành công</p>
+          </div>
+          
+          <div class="payment-info">
+            <div class="info-row">
+              <span class="info-label">Số tiền:</span>
+              <span class="info-value amount">649.000đ</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Nội dung CK:</span>
+              <span class="info-value">DH123456 NGUYEN VAN A</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Ngân hàng:</span>
+              <span class="info-value" id="bank-name">Vietcombank</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Số TK:</span>
+              <span class="info-value">1234567890</span>
+            </div>
+          </div>
+          
+          <div class="countdown-timer">
+            <i class="fas fa-clock"></i>
+            <span>Giao dịch hết hạn sau: </span>
+            <span class="timer" id="countdown">14:59</span>
+          </div>
+        </div>
+        
+        <div class="qr-footer">
+          <p><i class="fas fa-shield-alt"></i> Giao dịch được bảo mật bởi SSL</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay Processing -->
+    <div class="payment-overlay" id="processing-overlay">
+      <div class="processing-popup">
+        <div class="processing-animation">
+          <div class="processing-circle"></div>
+          <i class="fas fa-sync-alt processing-icon"></i>
+        </div>
+        <h3>Đang xử lý giao dịch...</h3>
+        <p>Vui lòng không tắt trình duyệt</p>
+      </div>
+    </div>
+
+    <!-- Overlay Success -->
+    <div class="payment-overlay" id="success-overlay">
+      <div class="success-popup">
+        <div class="success-animation">
+          <div class="success-circle">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="confetti"></div>
+        </div>
+        <h2>Đặt hàng thành công!</h2>
+        <p class="order-code">Mã đơn hàng: <strong>#DH123456</strong></p>
+        <p class="success-message">Cảm ơn bạn đã mua hàng. Chúng tôi sẽ liên hệ xác nhận đơn hàng trong thời gian sớm nhất.</p>
+        <div class="success-details">
+          <div class="detail-item">
+            <i class="fas fa-money-bill-wave"></i>
+            <span>Tổng tiền: <strong>649.000đ</strong></span>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-credit-card"></i>
+            <span>Thanh toán: <strong id="payment-method-text">Chuyển khoản</strong></span>
+          </div>
+        </div>
+        <div class="success-actions">
+          <a href="../trangchu.html" class="btn-continue"><i class="fas fa-home"></i> Về trang chủ</a>
+          <a href="DonHang.html" class="btn-track"><i class="fas fa-truck"></i> Theo dõi đơn hàng</a>
+        </div>
+      </div>
+    </div>
+
     <script src="../js/components/thanhtoan.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const placeOrderBtn = document.querySelector('.place-order-btn');
+        const qrOverlay = document.getElementById('qr-overlay');
+        const processingOverlay = document.getElementById('processing-overlay');
+        const successOverlay = document.getElementById('success-overlay');
+        const closeQrBtn = document.getElementById('close-qr');
+        const qrClickable = document.getElementById('qr-clickable');
+        const paymentRadios = document.querySelectorAll('input[name="payment"]');
+        
+        let countdownInterval;
+        
+        // Đặt hàng
+        placeOrderBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+          
+          if (selectedPayment === 'cod') {
+            // COD - Hiện processing rồi success
+            showProcessing();
+            setTimeout(() => {
+              hideProcessing();
+              document.getElementById('payment-method-text').textContent = 'Thanh toán khi nhận hàng';
+              showSuccess();
+            }, 2000);
+          } else {
+            // Online payment - Hiện QR
+            updateQRPopup(selectedPayment);
+            showQRPopup();
+            startCountdown();
+          }
+        });
+        
+        // Cập nhật popup theo phương thức thanh toán
+        function updateQRPopup(method) {
+          const qrLogo = document.getElementById('qr-logo');
+          const qrTitle = document.getElementById('qr-title');
+          const bankName = document.getElementById('bank-name');
+          
+          if (method === 'momo') {
+            qrLogo.innerHTML = '<i class="fas fa-wallet"></i>';
+            qrLogo.style.background = 'linear-gradient(135deg, #a50064 0%, #d82d8b 100%)';
+            qrTitle.textContent = 'Thanh toán qua MoMo';
+            bankName.textContent = 'Ví MoMo';
+          } else if (method === 'vnpay') {
+            qrLogo.innerHTML = '<i class="fas fa-qrcode"></i>';
+            qrLogo.style.background = 'linear-gradient(135deg, #0066b3 0%, #00a3e0 100%)';
+            qrTitle.textContent = 'Thanh toán qua VNPay';
+            bankName.textContent = 'VNPay';
+          } else {
+            qrLogo.innerHTML = '<i class="fas fa-university"></i>';
+            qrLogo.style.background = 'linear-gradient(135deg, #1a5f7a 0%, #2d8bba 100%)';
+            qrTitle.textContent = 'Thanh toán qua Ngân hàng';
+            bankName.textContent = 'Vietcombank';
+          }
+        }
+        
+        // Click vào QR để giả lập quét thành công
+        qrClickable.addEventListener('click', function() {
+          hideQRPopup();
+          showProcessing();
+          
+          setTimeout(() => {
+            hideProcessing();
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            const methodText = {
+              'bank': 'Chuyển khoản ngân hàng',
+              'momo': 'Ví MoMo',
+              'vnpay': 'VNPay QR'
+            };
+            document.getElementById('payment-method-text').textContent = methodText[selectedPayment] || 'Online';
+            showSuccess();
+          }, 2000);
+        });
+        
+        // Đóng QR popup
+        closeQrBtn.addEventListener('click', function() {
+          hideQRPopup();
+        });
+        
+        // Click outside to close
+        qrOverlay.addEventListener('click', function(e) {
+          if (e.target === qrOverlay) {
+            hideQRPopup();
+          }
+        });
+        
+        // Functions
+        function showQRPopup() {
+          qrOverlay.classList.add('active');
+        }
+        
+        function hideQRPopup() {
+          qrOverlay.classList.remove('active');
+          clearInterval(countdownInterval);
+        }
+        
+        function showProcessing() {
+          processingOverlay.classList.add('active');
+        }
+        
+        function hideProcessing() {
+          processingOverlay.classList.remove('active');
+        }
+        
+        function showSuccess() {
+          successOverlay.classList.add('active');
+          createConfetti();
+        }
+        
+        function startCountdown() {
+          let time = 899; // 14:59
+          const timerEl = document.getElementById('countdown');
+          
+          countdownInterval = setInterval(() => {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (time <= 0) {
+              clearInterval(countdownInterval);
+              hideQRPopup();
+              alert('Giao dịch đã hết hạn. Vui lòng thử lại.');
+            }
+            time--;
+          }, 1000);
+        }
+        
+        // Confetti effect
+        function createConfetti() {
+          const colors = ['#ff6b9d', '#ffd93d', '#6bcb77', '#4d96ff', '#ff6b6b'];
+          const confettiContainer = document.querySelector('.confetti');
+          
+          for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti-piece';
+            confetti.style.cssText = `
+              left: ${Math.random() * 100}%;
+              background: ${colors[Math.floor(Math.random() * colors.length)]};
+              animation-delay: ${Math.random() * 2}s;
+              animation-duration: ${2 + Math.random() * 2}s;
+            `;
+            confettiContainer.appendChild(confetti);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
